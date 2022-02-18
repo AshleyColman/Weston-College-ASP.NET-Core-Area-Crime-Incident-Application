@@ -1,0 +1,35 @@
+﻿@page
+@model UI.Pages.CrimeDataModel
+@{
+    ViewData["Title"] = "Area Crime Incidents";
+}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Location Type</th>
+                <th>Latitude</th>
+                <th>Longitute</th>
+                <th>Street Id</th>
+                <th>Street Name</th>
+                <th>Month</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var incident in @Model.CrimeIncidentModels)
+            {
+                <tr>
+                    <td>@incident.Category</td>
+                    <td>@incident.Location_Type</td>
+                    <td>@incident.Location.Latitude</td>
+                    <td>@incident.Location.Longitute</td>
+                    <td>@incident.Location.Street.Id</td>
+                    <td>@incident.Location.Street.Name</td>
+                    <td>@incident.Month</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

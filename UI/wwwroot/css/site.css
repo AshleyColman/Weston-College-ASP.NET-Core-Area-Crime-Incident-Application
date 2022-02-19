@@ -1,18 +1,73 @@
+/*  #region Default Styles */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+/* #endregion */
+
+/* #region Custom Styles */
+:root {
+    --primary-blue: hsl(206, 83%, 43%);
+    --secondary-blue: hsl(209, 86%, 38%);
+    --shadow-grey: hsla(240, 100%, 50%, 0.2);
+    --white-65: hsla(0, 0%, 100%, 0.65);
+    --white-35: hsla(0, 0%, 100%, 0.35);
+}
+
+.logo {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    max-width: 150px;
+    margin: auto;
+}
+
+.blue_panel {
+    height: 5rem;
+    background-color: var(--primary-blue);
+    box-shadow: 0 2px 10px var(--shadow-grey);
+}
+
+.top_nav {
+    background-color: var(--secondary-blue);
+    height: 2rem;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.top_nav_link{
+    color: var(--white-65) !important;
+    text-decoration: none;
+    font-weight: 700;
+    margin-right: 2rem;
+}
+
+    .top_nav_link:hover {
+        color: var(--white-35) !important;
+    }
+
+a {
+    cursor: pointer;
+}
+
+.query_form {
+    width: 75%;
+}
+/* #endregion */

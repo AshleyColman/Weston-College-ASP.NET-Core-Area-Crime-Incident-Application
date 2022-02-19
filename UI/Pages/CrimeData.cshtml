@@ -1,11 +1,14 @@
-﻿@page
+﻿@page "/"
 @model UI.Pages.CrimeDataModel
 @{
     ViewData["Title"] = "Area Crime Incidents API";
+    ViewData["Author"] = "Ashley Colman";
+    ViewData["Description"] = "Technical Test Application for Weston College";
+    ViewData["Keywords"] = "ASP.NET, C#, Weston College";
 }
 
 @* Heading. *@
-<h1 class="text-center display-3 fw-bold">@ViewData["Title"]</h1>
+<h1 class="text-center display-3 fw-bold mt-4">@ViewData["Title"]</h1>
 
 @* Instructions. *@
 <p class="text-center lead text-dark mt-4">
@@ -13,7 +16,7 @@
 </p>
 
 @* Form & Data Body. *@
-<div class="container">
+<div class="container query_form">
     @* Load QueryModel Form. *@
     <form method="post">
 
@@ -33,12 +36,12 @@
             <input asp-for="@Model.QueryModel.Date" class=" form-control">
             <span class="form-label text-danger" asp-validation-for="@Model.QueryModel.Date"></span>
         </div>
-        <button asp-page-handler="LoadCrimeIncidentModels" class="btn btn-primary btn-block w-100 mt-3" type="submit">Submit Query</button>
+        <button asp-page-handler="LoadCrimeIncidentModels" class="btn btn-primary btn-block w-100 mt-4" type="submit">Submit Query</button>
     </form>
 
     @* Load Sample Data Load Form. *@
     <form method="post">
-        <button asp-page-handler="LoadSampleCrimeIncidentData" class="btn btn-dark btn-block w-100 mt-3" type="submit">Load Sample Data</button>
+        <button asp-page-handler="LoadSampleCrimeIncidentData" class="btn btn-dark btn-block w-100 mt-4" type="submit">Load Sample Data</button>
     </form>
 
     @* Display Query String. *@
@@ -66,14 +69,14 @@
     {
         @if (@Model.CrimeIncidentModels.Any() == false)
         {
-            <p class="text-center lead text-warning fw-bold mt-4">
+            <p class="text-center lead text-dark fw-bold mt-4">
                 No results found
             </p>
         }
     }
     else
     {
-        <p class="text-center lead text-warning fw-bold mt-4">
+        <p class="text-center lead text-dark fw-bold mt-4">
             No results found
         </p>
     }

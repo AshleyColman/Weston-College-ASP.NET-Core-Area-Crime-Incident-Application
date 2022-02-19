@@ -3,35 +3,35 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - UI</title>
+    <meta name="author" content="@ViewData["Author"]" />
+    <meta name="description" content="@ViewData["Description"]" />
+    <meta name="keywords" content="@ViewData["Keywords"]" />
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/UI.styles.css" asp-append-version="true" />
+    <link rel="icon" href="~/images/favicon.ico" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">UI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/CrimeData">CrimeData</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div class="top_nav">
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">About</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">Jobs</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">ProPortal</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">Bursary</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">Payments</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">Staff</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">Safeguarding</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">Applicants</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">Enrolments</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">eILP</a>
+            <a href="#" title="Example link from Weston College Website" class="top_nav_link">Contact</a>
+        </div>
+        <div class="blue_panel">
+            <a class="navbar-brand" asp-area="" asp-page="/Index">
+                <img class="logo" alt="Weston College Logo" src="~/images/logo.png" />
+            </a>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -41,7 +41,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <p class="text-center">&copy; @DateTime.Now.Year - Ashley Colman - <a href="https://github.com/AshleyColman" target="_blank" title="View my GitHub">GitHub</a> - <a href="https://linkedin.com/in/ashley-colman" target="_blank" title="View my LinkedIn">LinkedIn</a> - <a href="mailto:dev.ashley.colman@gmail.com.com">dev.ashley.colman@gmail.com</a></p>
         </div>
     </footer>
 

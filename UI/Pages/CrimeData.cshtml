@@ -5,6 +5,33 @@
 }
 
 <div class="container">
+    @* Load QueryModel Form. *@
+    <form method="post">
+        <div class="form-row">
+            <div class="col">
+                <label asp-for="@Model.QueryModel.Latitude" class="form-label"></label>
+                <input asp-for="@Model.QueryModel.Latitude" class="form-control" placeholder="0.0000">
+                <span class="text-danger" asp-validation-for="@Model.QueryModel.Latitude"></span>
+            </div>
+            <div class="col">
+                <label asp-for="@Model.QueryModel.Longitude" class="form-label"></label>
+                <input asp-for="@Model.QueryModel.Longitude" class="form-control" placeholder="0.0000">
+                <span class="text-danger" asp-validation-for="@Model.QueryModel.Longitude"></span>
+            </div>
+            <div class="col">
+                <label asp-for="@Model.QueryModel.Date" class="form-label"></label>
+                <input asp-for="@Model.QueryModel.Date" class=" form-control">
+                <span class="text-danger" asp-validation-for="@Model.QueryModel.Date"></span>
+            </div>
+            <button asp-page-handler="LoadCrimeIncidentModels" class="btn btn-success" type="submit">Submit Query</button>
+        </div>
+    </form>
+
+    @* Load Sample Data Load Form. *@
+    <form method="post">
+        <button asp-page-handler="LoadSampleCrimeIncidentData" class="btn btn-info" type="submit">Load Sample Data</button>
+    </form>
+
     <table class="table">
         <thead>
             <tr>
@@ -18,17 +45,27 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var incident in @Model.CrimeIncidentModels)
+            @if (@Model.CrimeIncidentModels is not null)
             {
-                <tr>
-                    <td>@incident.Category</td>
-                    <td>@incident.Location_Type</td>
-                    <td>@incident.Location.Latitude</td>
-                    <td>@incident.Location.Longitute</td>
-                    <td>@incident.Location.Street.Id</td>
-                    <td>@incident.Location.Street.Name</td>
-                    <td>@incident.Month</td>
-                </tr>
+                if (@Model.CrimeIncidentModels.Any())
+                {
+                    @foreach (var incident in @Model.CrimeIncidentModels)
+                    {
+                        <tr>
+                            <td>@incident.Category</td>
+                            <td>@incident.Location_Type</td>
+                            <td>@incident.Location.Latitude</td>
+                            <td>@incident.Location.Longitute</td>
+                            <td>@incident.Location.Street.Id</td>
+                            <td>@incident.Location.Street.Name</td>
+                            <td>@incident.Month</td>
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                <p class="muted-text">No data to display.</p>
             }
         </tbody>
     </table>

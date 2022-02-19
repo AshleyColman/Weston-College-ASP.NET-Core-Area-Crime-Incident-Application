@@ -30,7 +30,8 @@ namespace Web_API_Library.Services
             }
             else
             {
-                throw new Exception($"{response.StatusCode}, {response.ReasonPhrase}");
+                return Enumerable.Empty<CrimeIncidentModel>();
+                //throw new Exception($"{response.StatusCode}, {response.ReasonPhrase}");
             }
         }
     }

@@ -6,6 +6,6 @@ namespace Web_API_Library.Models
     {
         [JsonPropertyName("latitude")] public string Latitude { get; set; }
         [JsonPropertyName("street")] public Street Street { get; set; }
-        [JsonPropertyName("longitude")] public string Longitute { get; set; }
+        [JsonPropertyName("longitude")] public string Longitude { get; set; }
     }
 }

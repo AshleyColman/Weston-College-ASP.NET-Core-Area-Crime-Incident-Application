@@ -12,12 +12,13 @@ namespace UI.Pages
 
         [BindProperty]
         public QueryModel QueryModel { get; set; }
-        public QueryModel SampleQueryModel { get; set; } = new QueryModel
+        public IQueryModel SampleQueryModel { get; set; } = new QueryModel
         {
             Latitude = 51.3509,
             Longitude = -2.9815,
             Date = new DateTime(year: 2021, month: 10, day: 1)
         };
+        public IEnumerable<ICrimeIncidentModel> CrimeIncidentModels { get; set; }
 
         public CrimeDataModel(IApiProcessor _apiProcessor) => apiProcessor = _apiProcessor;
         public void OnGet()
@@ -29,7 +30,6 @@ namespace UI.Pages
             CrimeIncidentModels = apiProcessor.LoadIncidents(SampleQueryModel.Latitude, SampleQueryModel.Longitude, $"{SampleQueryModel.Date.Year}-{SampleQueryModel.Date.Month}").Result;
             SetQueryModelWithSampleData();
         }
-        public IEnumerable<ICrimeIncidentModel> CrimeIncidentModels { get; set; }
         // Sets the query model with sample data for form input display.
         private void SetQueryModelWithSampleData()
         {

@@ -4,6 +4,6 @@
     {
         public string Latitude { get; set; }
         public Street Street { get; set; }
-        public string Longitute { get; set; }
+        public string Longitude { get; set; }
     }
 }

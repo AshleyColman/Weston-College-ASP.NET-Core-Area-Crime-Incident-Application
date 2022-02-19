@@ -14,14 +14,14 @@ namespace Web_API_Library.Services
 
         public ApiProcessor()
         {
-            client = new HttpClient();
+            client = new();
             client.BaseAddress = new Uri("https://data.police.uk/api/crimes-street/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        public async Task<IEnumerable<CrimeIncidentModel>> LoadIncidents(double _latitude, double _longitute, string _date)
+        public async Task<IEnumerable<CrimeIncidentModel>> LoadIncidents(double _latitude, double _longitude, string _date)
         {
-            string url = $"all-crime?lat={_latitude}&lng={_longitute}&date={_date}";
+            string url = $"all-crime?lat={_latitude}&lng={_longitude}&date={_date}";
             using HttpResponseMessage response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode == true)
             {

@@ -15,7 +15,7 @@
     Search area crime incidents by entering the latitude, longitude and date below
 </p>
 
-@* Form & Data Body. *@
+@* Form. *@
 <div class="container query_form">
     @* Load QueryModel Form. *@
     <form method="post">
@@ -53,11 +53,11 @@
                 if (@Model.QueryModel is not null)
                 {
                     <p class="text-center lead text-dark fw-bold mt-4">
-                        Displaying Crime Indicent Data for query:
+                        Displaying Crime Incident Data for query:
                     </p>
 
                     <p class="text-center lead fw-bold text-primary">
-                        @($"lat={@Model.QueryModel.Latitude}&lng={@Model.QueryModel.Longitude}&date={@Model.QueryModel.Date}");
+                        @($"lat={@Model.QueryModel.Latitude}&lng={@Model.QueryModel.Longitude}&date={@Model.QueryModel.Date.Year}-{@Model.QueryModel.Date.Month}");
                     </p>
                 }
             }
@@ -88,39 +88,45 @@
             Invalid Query
         </p>
     }
+</div>
 
+@* API Data Table. *@
+<div class="container">
     @* Display API Table Results. *@
-    <table class="table mt-4">
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Location Type</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th>Street Id</th>
-                <th>Street Name</th>
-                <th>Month</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (@Model.CrimeIncidentModels is not null)
-            {
-                if (@Model.CrimeIncidentModels.Any())
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover caption-top">
+            <caption>Table Data: List of area crime incidents</caption>
+            <thead class="table-dark">
+                <tr>
+                    <th>Category</th>
+                    <th>Location Type</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Street Id</th>
+                    <th>Street Name</th>
+                    <th>Month</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (@Model.CrimeIncidentModels is not null)
                 {
-                    @foreach (var incident in @Model.CrimeIncidentModels)
+                    if (@Model.CrimeIncidentModels.Any())
                     {
-                        <tr>
-                            <td>@incident.Category</td>
-                            <td>@incident.Location_Type</td>
-                            <td>@incident.Location.Latitude</td>
-                            <td>@incident.Location.Longitude</td>
-                            <td>@incident.Location.Street.Id</td>
-                            <td>@incident.Location.Street.Name</td>
-                            <td>@incident.Month</td>
-                        </tr>
+                        @foreach (var incident in @Model.CrimeIncidentModels)
+                        {
+                            <tr>
+                                <td>@incident.Category</td>
+                                <td>@incident.Location_Type</td>
+                                <td>@incident.Location.Latitude</td>
+                                <td>@incident.Location.Longitude</td>
+                                <td>@incident.Location.Street.Id</td>
+                                <td>@incident.Location.Street.Name</td>
+                                <td>@incident.Month</td>
+                            </tr>
+                        }
                     }
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>

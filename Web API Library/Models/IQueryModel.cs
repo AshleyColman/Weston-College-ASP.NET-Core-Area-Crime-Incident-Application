@@ -1,5 +1,5 @@
 ﻿
-namespace UI.Models
+namespace Web_API_Library.Models
 {
     public interface IQueryModel
     {

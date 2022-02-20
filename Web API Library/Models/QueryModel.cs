@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using UI.Validation;
+using Web_API_Library.Validation;
 
-namespace UI.Models
+namespace Web_API_Library.Models
 {
     public sealed class QueryModel : IQueryModel
     {

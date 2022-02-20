@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UI.Validation
+namespace Web_API_Library.Validation
 {
     public sealed class ValidDate : ValidationAttribute
     {
